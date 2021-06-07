@@ -30,6 +30,5 @@ public class GetRelatedContacts
     public static void updateContacts(List<Contact> contactsToUpdate)
     {
         update contactsToUpdate;
-        System.debug('Cons: ' + contactsToUpdate);
     }
 }

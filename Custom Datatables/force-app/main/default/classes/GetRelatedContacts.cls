@@ -13,17 +13,23 @@ public class GetRelatedContacts
     public static List<Contact> getContacts(Id accountId)
     {
         List<Contact> contactsToReturn = new List<Contact>();
-        /*try
+        try
         {
-            modulesToReturn = [Select Id, Name, Status__c, Must_Complete_By__c, Hours_Required__c, Actual_Hours_Spent__c 
-                               From Module__c 
-                               Where Onboarding__c =: onboardingId 
-                               ORDER BY Sort_Order__c ASC];
+            contactsToReturn = [Select Id, Name, Title, Phone, Email, MailingCity 
+                               From Contact 
+                               Where AccountId =: accountId ];
         }
         catch(Exception ex)
         {
             System.debug('Exception: ' + ex);
-        }*/
+        }
         return contactsToReturn;
+    }
+    
+    @AuraEnabled
+    public static void updateContacts(List<Contact> contactsToUpdate)
+    {
+        update contactsToUpdate;
+        System.debug('Cons: ' + contactsToUpdate);
     }
 }

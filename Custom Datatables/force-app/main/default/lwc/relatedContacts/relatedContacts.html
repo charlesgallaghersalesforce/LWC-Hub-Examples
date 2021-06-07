@@ -1,7 +1,17 @@
 <template>
-    <lightning-card  title="Contacts">
+    <lightning-card  title="Contacts" icon-name="standard:contact">
         <lightning-button label="New" slot="actions"></lightning-button>
-        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        <template if:true={contacts}>
+          <lightning-datatable
+            key-field="Id"
+            hide-checkbox-column
+            data={contacts}
+            columns={columns}
+            onsave={handleSave}
+            draft-values={draftValues}
+          >
+          </lightning-datatable>
+        </template>
         <p slot="footer">Footer shown for example purposes</p>
     </lightning-card>
 </template>

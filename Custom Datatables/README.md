@@ -1,4 +1,5 @@
 # Custom Datatables
+![contactList-Image](contactRelatedListImage.png)
 
 At a high level Custom Datatables was created to show off the power of [Lightning Data Tables](https://developer.salesforce.com/docs/component-library/bundle/lightning-datatable/example) in LWC developemt. 
 

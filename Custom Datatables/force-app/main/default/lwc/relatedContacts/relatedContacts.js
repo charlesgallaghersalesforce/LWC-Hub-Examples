@@ -1,6 +1,7 @@
 import { LightningElement, api, wire, track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex';
+import CONTACT_OBJECT from '@salesforce/schema/Contact';
 import getContacts from '@salesforce/apex/GetRelatedContacts.getContacts';
 import updateContacts from '@salesforce/apex/GetRelatedContacts.updateContacts';
 
@@ -33,6 +34,10 @@ export default class RelatedContacts extends LightningElement
 
     //Variable to track edits
     draftValues = [];
+
+    //Track modal opening
+    @track openModal =  false;
+    contactObject = CONTACT_OBJECT;
 
     //Create wire to get related contacts
     @wire(getContacts, {accountId: '$recordId'})
@@ -139,4 +144,28 @@ export default class RelatedContacts extends LightningElement
     }
 
     //Javascript to open modal on New button click
+    handleNewClick()
+    {
+        this.openModal = true;
+    }
+
+    closeModal()
+    {
+        this.openModal = false;
+    }
+
+    handleContactCreated()
+    {
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: 'Success',
+                message: 'Contacts created',
+                variant: 'success'
+            })
+        );
+
+        this.openModal = false;
+
+        this.refresh();
+    }
 }

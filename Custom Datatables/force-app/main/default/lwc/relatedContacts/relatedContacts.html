@@ -1,6 +1,6 @@
 <template>
     <lightning-card  title="Contacts" icon-name="standard:contact">
-        <lightning-button label="New" slot="actions"></lightning-button>
+        <lightning-button label="New" slot="actions" onclick={handleNewClick}></lightning-button>
         <template if:true={contacts}>
           <lightning-datatable
             key-field="Id"
@@ -13,5 +13,34 @@
           </lightning-datatable>
         </template>
         <p slot="footer">Footer shown for example purposes</p>
+
+        <!--Modal for New Contact-->
+        <template if:true={openModal}>
+            <div class="slds-modal slds-fade-in-open slds-backdrop"> 
+                <div class="slds-modal__container">
+                    <!--Header Section--> 
+                    <div class="slds-modal__header">  
+                        <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"  
+                            variant="bare-inverse" onclick={closeModal} class="slds-modal__close"></lightning-button-icon>
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Create New Contact</h2>
+                    </div> 
+
+                    <!--Body Section-->  
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning-record-edit-form object-api-name={contactObject} onsuccess={handleContactCreated}>
+                            <lightning-input-field field-name='FirstName'></lightning-input-field>
+                            <lightning-input-field field-name='LastName'></lightning-input-field>
+                            <lightning-input-field field-name='Title'></lightning-input-field>
+                            <lightning-input-field field-name='Phone'></lightning-input-field>
+                            <lightning-input-field field-name='Email'></lightning-input-field>
+                            <lightning-input-field field-name='MailingAddress'></lightning-input-field>
+                            <lightning-input-field field-name='AccountId' value={recordId}></lightning-input-field>
+                            <lightning-button class="slds-align_absolute-center" type="submit" variant="brand" label="Create Contact"></lightning-button>
+                        </lightning-record-edit-form>
+                    </div>
+                </div>  
+            </div> 
+        </template>
+
     </lightning-card>
 </template>

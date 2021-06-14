@@ -1,0 +1,14 @@
+<template>
+    <div onclick={selectContact} class={tileClass}>
+      <div class="tile"></div>
+      <div class="lower-third">
+        <!-- Contact information -->
+        <div class="slds-text-align_left">
+          <h1 class="slds-truncate slds-text-heading_medium">{contact.FirstName} {contact.LastName}</h1>
+          <h2 class="slds-truncate slds-text-heading_small">{contact.Title}</h2>
+        </div>  
+        <div class="slds-text-body_small">Phone: <lightning-formatted-phone value={contact.Phone}></lightning-formatted-phone></div>
+        <div class="slds-text-body_small">Email: <lightning-formatted-email value={contact.Email}></lightning-formatted-email></div>
+      </div>
+    </div>
+</template>  

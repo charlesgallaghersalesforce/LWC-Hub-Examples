@@ -1,0 +1,18 @@
+.tile {
+    width: 150px;
+    height: 150px;
+    padding: 1px !important;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    background-image:url(https://playful-shark-clandr-dev-ed--c.visualforce.com/resource/1623623736000/Avatar);
+    border-radius: 50%;
+}
+.selected {
+    border: 3px solid rgb(0, 95, 178);
+    border-radius: 5px;
+}
+.tile-wrapper {
+    cursor: pointer;
+    padding: 5px;
+}

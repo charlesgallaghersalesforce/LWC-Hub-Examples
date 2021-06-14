@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is a sample Lightning Message Channel to demo the communication between LWCs.</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>This is the record Id that changed</description>
+        <fieldName>recordId</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>refreshResults</fieldName>
+        <description>Flag to indicate when results must be refreshed</description>
+    </lightningMessageFields>
+    <masterLabel>ContactMessageChannel</masterLabel>
+</LightningMessageChannel>

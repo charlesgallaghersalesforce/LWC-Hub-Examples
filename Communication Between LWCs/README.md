@@ -1,18 +1,16 @@
-# Salesforce DX Project: Next Steps
+# Communication between Lightning Web Components
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This example shows how you can share data between multiple LWCs through the use of Custom Events and Message Channel.
 
-## How Do You Plan to Deploy Your Changes?
+## LWC Communication: Design
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+- All project components are included in a Lightning App called Communication LWC, which is also contained in this package.
+- The Lightning App page 'Communication LWC' contains the Lightning Web Components for this project.
 
-## Configure Your Salesforce DX Project
+Below is the structure and description for each of the Lightning Web Components:
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+![communicationLwc-Image](Communication-LWC.png)
+## Documentation
 
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+- [Message Channel](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.use_message_channel_intro)
+- [Create and Dispatch Events](https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.events_create_dispatch)

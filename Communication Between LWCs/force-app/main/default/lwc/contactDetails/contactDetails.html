@@ -1,0 +1,41 @@
+<template>
+
+    <template if:false={wiredRecord.data}>
+      <!-- lightning card for the label when wiredRecord has no data goes here  -->
+      <lightning-card>
+        <span class="slds-align_absolute-center no-contact-height">-- Select a contact from the left --</span>
+      </lightning-card>
+    </template>
+
+    <template if:true={wiredRecord.data}>
+      <lightning-tabset variant="scoped">
+        <lightning-tab label="Contact Details">
+          <!-- lightning card for the content when wiredRecord has data goes here  -->
+          <lightning-card variant="Narrow" title={contactName} icon-name={detailsTabIconName}>
+            <lightning-button label="More Details" slot="actions" onclick={navigateToRecordViewPage}></lightning-button>
+            <lightning-record-edit-form record-id={contactId} object-api-name="Contact" density="compact" onsuccess={handleSuccess}>
+                <lightning-messages>
+                </lightning-messages>
+                <div class="slds-p-around_small">
+                    <lightning-input-field field-name="Title"></lightning-input-field>
+                    <lightning-input-field field-name="Phone"></lightning-input-field>
+                    <lightning-input-field field-name="Email"></lightning-input-field>
+                    <div class="slds-text-align_center">
+                        <lightning-button
+                            class="slds-m-top_small"
+                            variant="brand"
+                            type="submit"
+                            name="update"
+                            label="Update">
+                        </lightning-button>
+                    </div>
+                </div>
+            </lightning-record-edit-form>
+          </lightning-card>
+
+        </lightning-tab>
+
+      </lightning-tabset>
+    </template>
+  </template>
+  

@@ -1,0 +1,30 @@
+<template>
+    <lightning-layout multiple-rows>
+
+        <!-- First section (top) -->
+        <lightning-layout-item size="12">
+
+            <lightning-card title="Search Contacts">
+            <p class="slds-var-p-horizontal_small">
+                <!-- Contact form LWC -->
+                <c-contact-search-form onsearch={searchContacts}></c-contact-search-form>
+            </p>
+            </lightning-card>
+
+        </lightning-layout-item>
+
+      <!-- Second section (bottom) -->
+      <lightning-layout-item size="12" class="slds-p-top_small slds-is-relative">
+
+        <!-- Spinner to display when data is loading -->
+        <template if:true={isLoading}>
+          <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+        </template>
+
+        <!-- contact search results -->
+        <c-contact-search-results account-id={accountId} onloading={handleLoading} ondoneloading={handleDoneLoading}></c-contact-search-results>
+
+      </lightning-layout-item>
+
+    </lightning-layout>
+</template>
